@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  width: 100%;
+  position: relative;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  width: 100%;
+  max-width: 100vw; /* Prevent overflow */
+  margin: 0;
+  padding: 0;
+}
+
+/* Lock viewport */
+#root {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Responsive font sizes */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Fix background and movement on mobile */
+@media (max-width: 768px) {
+  body {
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Hide scroll to top button on mobile */
+  .scroll-to-top {
+    display: none !important;
+  }
+}
+
+/* Container responsiveness with fixed width */
+.container-fluid {
+  width: 100%;
+  max-width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+@media (min-width: 640px) {
+  .container-fluid {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-fluid {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-fluid {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-fluid {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+}
+
+/* Fixed width wrapper */
+.layout-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Responsive grid system with fixed width */
+.grid-responsive {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Responsive images with fixed dimensions */
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block; /* Prevent image spacing issues */
+}
+
+/* Responsive text utilities */
+.text-responsive {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.heading-responsive {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+}
+
+/* Scroll to top button fixes */
+.scroll-to-top {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 999 !important;
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .hover-only {
+    display: none;
+  }
+
+  .touch-action-none {
+    touch-action: none;
+  }
+}
+
+/* Safe area insets for modern mobile devices */
+@supports (padding: max(0px)) {
+  .safe-padding {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Fix for any potential horizontal overflow */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scroll on animations */
+.animate-all {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
